@@ -11,12 +11,8 @@ const connectionToDB = async(req, res) =>{
         console.log('MongoDB connected successfully.')
 
     }catch(error){
-        console.log('Error Connecting MongoDB');
-        res.status(500).json({
-            success: false,
-            message: 'Internal Server Error'
-        })
-
+        console.log('Error Connecting MongoDB', error.message);
+        process.exit(1)
     }
 
 }
